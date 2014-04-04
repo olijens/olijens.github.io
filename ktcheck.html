@@ -35,28 +35,28 @@ function athkt(){
 			return false;
 		}
 	}
-	var day = parseInt(kt.substr(0,2));
+	var day = parseInt(kt.substr(0,2), 10);
 	if (day > 31){
 		day = day - 40;
 	}
 	
-	var yearnr = parseInt(kt[9]);
+	var yearnr = parseInt(kt[9], 10);
 	if (yearnr > 5){
-		var year = 100*(10 + yearnr) + parseInt(kt.substr(4, 2));
+		var year = 100*(10 + yearnr) + parseInt(kt.substr(4, 2), 10);
 	}
 	else{
-		var year = 2000 + parseInt(kt.substr(4, 2));
+		var year = 2000 + parseInt(kt.substr(4, 2), 10);
 	}
 
-	if (!Date.validateDay(day, year, parseInt(kt.substr(2, 2)))){
+	if (!Date.validateDay(day, year, parseInt(kt.substr(2, 2), 10))){
 		resp.innerHTML = "Dagsetningin er ekki lögleg.";
 		console.log("break validateDay");
 		return false;
 	}
 
-	var varnr = parseInt(kt[0])*3 + parseInt(kt[1])*2 + parseInt(kt[2])*7 + parseInt(kt[3])*6 + parseInt(kt[4])*5 + parseInt(kt[5])*4 + parseInt(kt[6])*3 + parseInt(kt[7])*2;
+	var varnr = parseInt(kt[0], 10)*3 + parseInt(kt[1], 10)*2 + parseInt(kt[2], 10)*7 + parseInt(kt[3], 10)*6 + parseInt(kt[4], 10)*5 + parseInt(kt[5], 10)*4 + parseInt(kt[6], 10)*3 + parseInt(kt[7], 10)*2;
 	varnr = 11 - varnr % 11;
-	if (varnr == parseInt(kt[8])){
+	if (varnr == parseInt(kt[8], 10)){
 		resp.innerHTML = "Kennitalan er lögleg.";
 		return true;
 	}
