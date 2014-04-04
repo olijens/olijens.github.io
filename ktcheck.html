@@ -36,7 +36,7 @@ function athkt(){
 		}
 	}
 	var day = parseInt(kt.substr(0,2), 10);
-	if (day > 31){
+	if (day > 40){
 		day = day - 40;
 	}
 	
@@ -48,7 +48,12 @@ function athkt(){
 		var year = 2000 + parseInt(kt.substr(4, 2), 10);
 	}
 
-	if (!Date.validateDay(day, year, parseInt(kt.substr(2, 2), 10))){
+	console.log(day, year, parseInt(kt.substr(2, 2), 10));
+
+	try{
+		Date.validateDay(day, year, parseInt(kt.substr(2, 2), 10) - 1);
+	}
+	catch(err){
 		resp.innerHTML = "Dagsetningin er ekki lögleg.";
 		console.log("break validateDay");
 		return false;
