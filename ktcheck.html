@@ -50,6 +50,7 @@ function athkt(){
 
 	if (!Date.validateDay(day, year, parseInt(kt.substr(2, 2)))){
 		resp.innerHTML = "Dagsetningin er ekki lögleg.";
+		console.log("break validateDay");
 		return false;
 	}
 
@@ -61,6 +62,7 @@ function athkt(){
 	}
 	else{
 		resp.innerHTML = "Kennitalan er ekki lögleg.";
+		return false;
 	}
 	console.log("break3");
 }
